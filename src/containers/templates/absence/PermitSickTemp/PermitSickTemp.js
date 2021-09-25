@@ -5,11 +5,12 @@ import ButtonContained from '../../../../components/molecules/button/ButtonConta
 import HeaderBack from '../../../../components/molecules/headers/HeaderBack/HeaderBack';
 import ToggleRow from '../../../../components/molecules/toggle/ToggleRow/ToggleRow';
 import DateTime from '../../../../components/organisms/absence/DateTime/DateTime';
+import FromToDate from '../../../../components/organisms/absence/FromToDate';
 import Remarks from '../../../../components/organisms/absence/Remarks';
 import TakePhoto from '../../../../components/organisms/absence/TakePhoto';
 import {_goBack} from '../../../../config/routes/NavigationServices';
 
-const CheckInOutTemp = ({title, onPress}) => {
+const PermitSickTemp = ({title, onPress, type, placeholder}) => {
   return (
     <View style={styling.bodyFlex}>
       <HeaderBack handleBack={_goBack} />
@@ -17,10 +18,8 @@ const CheckInOutTemp = ({title, onPress}) => {
         <Text style={{textAlign: 'center', ...fonts.bold_24, marginBottom: 20}}>
           {title}
         </Text>
-        <DateTime />
-        <ToggleRow />
-        <TakePhoto />
-        <Remarks title={'Remarks'} placeholder={'Example: Fixing view'} />
+        <FromToDate />
+        <Remarks title={type} placeholder={placeholder} />
         <ButtonContained style={{marginTop: 50}} onPress={onPress}>
           SUBMIT
         </ButtonContained>
@@ -29,8 +28,8 @@ const CheckInOutTemp = ({title, onPress}) => {
   );
 };
 
-CheckInOutTemp.defaultProps = {
+PermitSickTemp.defaultProps = {
   title: 'Check In',
 };
 
-export default CheckInOutTemp;
+export default PermitSickTemp;

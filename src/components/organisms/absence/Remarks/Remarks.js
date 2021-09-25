@@ -1,11 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Controller, useForm} from 'react-hook-form';
-import {View, Text, TextInput} from 'react-native';
+import {Text, TextInput, View} from 'react-native';
 import {colour, fonts} from '../../../../assets/styles';
-import InputText from '../../../molecules/text/InputText/InputText';
 
-const Remarks = () => {
+const Remarks = ({title, placeholder}) => {
   const {
     handleSubmit,
     control,
@@ -21,7 +20,7 @@ const Remarks = () => {
   });
   return (
     <View style={{marginTop: 30}}>
-      <Text style={{...fonts.semiBold_13, marginBottom: 10}}>Remarks</Text>
+      <Text style={{...fonts.semiBold_13, marginBottom: 10}}>{title}</Text>
       <Controller
         control={control}
         render={({field: {onChange, onBlur, value}}) => {
@@ -38,7 +37,7 @@ const Remarks = () => {
               handleChange={value => onChange(value)}
               handleBlur={onBlur}
               multiline={true}
-              placeholder={'Example: Fixing view'}
+              placeholder={placeholder}
             />
           );
         }}

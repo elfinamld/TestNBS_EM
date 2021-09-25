@@ -26,4 +26,8 @@ export const screenRoutes = [
     name: screens.sick,
     component: Page.SickPage,
   },
+  {
+    name: screens.permission,
+    component: Page.PermissionPage,
+  },
 ];

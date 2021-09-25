@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
 import {styling} from '../../../../assets/styles';
-import PermitSickTemp from '../../../templates/absence/PermitSickTemp/PermitSickTemp';
+import PermitSickTemp from '../../../templates/absence/PermitSickTemp';
 
-class SickPage extends Component {
+class PermissionPage extends Component {
   render() {
     return (
       <View style={styling.bodyFlex}>
         <PermitSickTemp
-          title={'Sick'}
-          type={'Reason'}
-          placeholder={'Example: Covid'}
+          title={'Permission'}
+          type={'Type of Disease'}
+          placeholder={'Example: Cuti'}
         />
       </View>
     );
   }
 }
 
-export default SickPage;
+export default PermissionPage;

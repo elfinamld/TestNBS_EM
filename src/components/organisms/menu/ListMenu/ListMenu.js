@@ -20,7 +20,7 @@ const iconMenu = [
   {
     icon: 'archive',
     label: 'Permission',
-    screen: screens.login,
+    screen: screens.permission,
   },
   {
     icon: 'stethoscope',

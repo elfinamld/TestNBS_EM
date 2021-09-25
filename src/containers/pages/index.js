@@ -4,6 +4,7 @@ import DashboardPage from './dashboard/DashboardPage';
 import CheckInPage from './absence/CheckInPage';
 import CheckOutPage from './absence/CheckOutPage';
 import SickPage from './absence/SickPage';
+import PermissionPage from './absence/PermissionPage';
 export {
   LoginPage,
   RegisterPage,
@@ -11,4 +12,5 @@ export {
   CheckInPage,
   CheckOutPage,
   SickPage,
+  PermissionPage,
 };

@@ -5,4 +5,5 @@ export const screens = {
   check_in: 'Check In',
   check_out: 'Check Out',
   sick: 'Sick',
+  permission: 'Permission',
 };

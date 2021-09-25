@@ -7,15 +7,16 @@
  */
 
 import React, {Component} from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
+import {colour} from './src/assets/styles';
 import NavigatorApp from './src/config/routes';
 
 const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: 'tomato',
+    primary: colour.GREEN[2],
     accent: 'yellow',
   },
 };

@@ -10,4 +10,8 @@ export const screenRoutes = [
     name: screens.login,
     component: Page.LoginPage,
   },
+  {
+    name: screens.dashboard,
+    component: Page.DashboardPage,
+  },
 ];

@@ -42,6 +42,10 @@ const LoginTemp = ({onSubmit, loading}) => {
     formState: {errors},
     ...propsForm
   } = useForm({
+    defaultValues: {
+      email: 'elfina38@gmail.com',
+      password: '123444444JJ',
+    },
     resolver: yupResolver(schema),
     mode: 'onChange',
   });

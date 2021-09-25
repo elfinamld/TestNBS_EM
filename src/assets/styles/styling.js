@@ -1,5 +1,5 @@
 import {Dimensions} from 'react-native';
-import {colour} from '.';
+import colour from './colour';
 
 export const heightScreen = Math.floor(Dimensions.get('screen').height);
 

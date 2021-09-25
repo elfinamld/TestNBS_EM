@@ -1,4 +1,5 @@
 import {Dimensions} from 'react-native';
+import {colour} from '.';
 
 export const heightScreen = Math.floor(Dimensions.get('screen').height);
 
@@ -14,7 +15,7 @@ export default {
   },
   bodyFlex: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colour.WHITE,
   },
   row: {
     flexDirection: 'row',

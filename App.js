@@ -9,6 +9,7 @@
 import React, {Component} from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
+import NavigatorApp from './src/config/routes';
 
 const theme = {
   ...DefaultTheme,
@@ -22,7 +23,7 @@ const theme = {
 const App = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
-      <View />
+      <NavigatorApp />
     </SafeAreaView>
   );
 };

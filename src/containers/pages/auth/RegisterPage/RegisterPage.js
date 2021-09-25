@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+import {colour} from '../../../../assets/styles';
+import RegisterTemp from '../../../templates/auth/RegisterTemp';
 
 class RegisterPage extends Component {
   render() {
     return (
-      <View>
-        <Text> RegisterPage </Text>
+      <View style={{flex: 1, backgroundColor: colour.WHITE}}>
+        <RegisterTemp />
       </View>
     );
   }

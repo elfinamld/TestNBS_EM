@@ -11,8 +11,7 @@ const NavigatorApp = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator
-        initialRouteName={screens.list}
-        headerMode={'screen'}
+        initialRouteName={screens.login}
         screenOptions={{header: () => {}}}>
         {screenRoutes.map((el, id) => {
           return (

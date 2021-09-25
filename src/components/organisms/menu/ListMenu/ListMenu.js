@@ -30,7 +30,7 @@ const iconMenu = [
   {
     icon: 'list-alt',
     label: 'History',
-    screen: screens.login,
+    screen: screens.history,
   },
   {
     icon: 'close',

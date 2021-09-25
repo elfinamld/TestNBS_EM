@@ -28,4 +28,8 @@ export default {
       height: 0,
     },
   },
+  itemCentered: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 };

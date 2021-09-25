@@ -30,4 +30,8 @@ export const screenRoutes = [
     name: screens.permission,
     component: Page.PermissionPage,
   },
+  {
+    name: screens.history,
+    component: Page.HistoryPage,
+  },
 ];

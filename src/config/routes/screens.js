@@ -6,4 +6,5 @@ export const screens = {
   check_out: 'Check Out',
   sick: 'Sick',
   permission: 'Permission',
+  history: 'History',
 };

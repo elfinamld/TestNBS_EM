@@ -14,4 +14,16 @@ export const screenRoutes = [
     name: screens.dashboard,
     component: Page.DashboardPage,
   },
+  {
+    name: screens.check_in,
+    component: Page.CheckInPage,
+  },
+  {
+    name: screens.check_out,
+    component: Page.CheckOutPage,
+  },
+  {
+    name: screens.sick,
+    component: Page.SickPage,
+  },
 ];

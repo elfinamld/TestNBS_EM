@@ -21,4 +21,11 @@ export default {
     flexDirection: 'row',
     alignItems: 'center',
   },
+  noShadow: {
+    elevation: 0,
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+  },
 };

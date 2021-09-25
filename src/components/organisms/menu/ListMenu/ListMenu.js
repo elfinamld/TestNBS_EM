@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import {Card} from 'react-native-paper';
+import {Text, View} from 'react-native';
 import {fonts} from '../../../../assets/styles';
+import {_push} from '../../../../config/routes/NavigationServices';
+import {screens} from '../../../../config/routes/screens';
 import ListNoScroll from '../../../molecules/list/ListNoScroll';
 import styles from './styles';
 
@@ -9,34 +10,42 @@ const iconMenu = [
   {
     icon: 'sign-in',
     label: 'Check-In',
+    screen: screens.check_in,
   },
   {
-    icon: 'sign-in',
+    icon: 'sign-out',
     label: 'Check-Out',
+    screen: screens.check_out,
   },
   {
-    icon: 'sign-in',
+    icon: 'archive',
     label: 'Permission',
+    screen: screens.login,
   },
   {
-    icon: 'sign-in',
+    icon: 'stethoscope',
     label: 'Sick',
+    screen: screens.sick,
   },
   {
-    icon: 'sign-in',
-    label: 'Leave',
+    icon: 'list-alt',
+    label: 'History',
+    screen: screens.login,
   },
   {
-    icon: 'sign-in',
+    icon: 'close',
     label: 'Exit',
+    screen: screens.login,
   },
 ];
 
 const ListMenu = () => {
+  const _goTo = screen => {
+    _push(screen);
+  };
   return (
     <View style={{marginTop: 20}}>
       <Text style={{...fonts.semiBold_14}}>Quick Access</Text>
-
       <ListNoScroll
         data={iconMenu}
         contentContainerStyle={[
@@ -45,6 +54,9 @@ const ListMenu = () => {
         ]}
         component={'CardMenu'}
         horizontal
+        itemProps={{
+          onPress: _goTo,
+        }}
       />
     </View>
   );

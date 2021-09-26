@@ -29,7 +29,7 @@ const RowText = ({text, date, setDate, setShow, show, mode, setMode}) => {
             value={date}
             mode={mode}
             is24Hour={true}
-            display="default"
+            display={Platform.OS === 'ios' ? 'inline' : 'default'}
             onChange={onChange}
           />
         )}

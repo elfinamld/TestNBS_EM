@@ -1,7 +1,14 @@
 import {yupResolver} from '@hookform/resolvers/yup';
 import React, {useMemo} from 'react';
 import {useForm} from 'react-hook-form';
-import {View, Text, ScrollView, SafeAreaView} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  SafeAreaView,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import * as yup from 'yup';
 import {fonts} from '../../../../assets/styles';
 import ButtonContained from '../../../../components/molecules/button/ButtonContained/ButtonContained';
@@ -69,29 +76,33 @@ const RegisterTemp = ({onSubmit, loading}) => {
     mode: 'onChange',
   });
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <View style={styles.wrap}>
-          <Text style={{...fonts.bold_24}}>Register</Text>
-          <View style={styles.wrapInput}>
-            <GenerateForm
-              formData={formData}
-              errorAppear={true}
-              errors={errors}
-              handleSubmit={handleSubmit(onSubmit)}
-              {...propsForm}
-            />
+    <KeyboardAvoidingView
+      style={{flex: 1}}
+      behavior={Platform.OS === 'ios' ? 'padding' : null}>
+      <SafeAreaView>
+        <ScrollView>
+          <View style={styles.wrap}>
+            <Text style={{...fonts.bold_24}}>Register</Text>
+            <View style={styles.wrapInput}>
+              <GenerateForm
+                formData={formData}
+                errorAppear={true}
+                errors={errors}
+                handleSubmit={handleSubmit(onSubmit)}
+                {...propsForm}
+              />
+            </View>
+            <ButtonContained
+              onPress={handleSubmit(onSubmit)}
+              loading={loading}
+              disabled={loading}
+              style={{marginTop: 40}}>
+              Register
+            </ButtonContained>
           </View>
-          <ButtonContained
-            onPress={handleSubmit(onSubmit)}
-            loading={loading}
-            disabled={loading}
-            style={{marginTop: 40}}>
-            Register
-          </ButtonContained>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 };
 

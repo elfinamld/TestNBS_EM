@@ -1,33 +1,38 @@
+import DateTimePicker from '@react-native-community/datetimepicker';
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
-import DatePicker from 'react-native-date-picker';
+import {Platform, Text, TouchableOpacity, View} from 'react-native';
 import {fonts} from '../../../../assets/styles';
+import {widthScreen} from '../../../../assets/styles/styling';
 import styles from './styles';
 
-const RowText = ({text, setOpen, open, date, setDate, start, startOne}) => {
+const RowText = ({text, date, setDate, setShow, show, mode, setMode}) => {
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+  };
+
+  const dates = date.toString().split('').slice(4, 15).join('');
   return (
     <View
       style={{flexDirection: 'row', marginBottom: 15, alignItems: 'center'}}>
-      <View style={{flex: 0.3}}>
+      <View style={{width: widthScreen * 0.15}}>
         <Text style={{...fonts.medium_13}}>{text || 'From'}</Text>
       </View>
       <View>
-        <TouchableOpacity style={styles.press} onPress={() => setOpen(true)}>
-          <Text style={{...fonts.reg_13}}>{`${startOne ? start : date}`}</Text>
+        <TouchableOpacity style={styles.press} onPress={() => setShow(true)}>
+          <Text style={{...fonts.reg_13}}>{`${dates}`}</Text>
         </TouchableOpacity>
-        <DatePicker
-          modal
-          mode={'date'}
-          open={open}
-          date={date}
-          onConfirm={date => {
-            setOpen(false);
-            setDate(date);
-          }}
-          onCancel={() => {
-            setOpen(false);
-          }}
-        />
+        {show && (
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode={mode}
+            is24Hour={true}
+            display="default"
+            onChange={onChange}
+          />
+        )}
       </View>
     </View>
   );

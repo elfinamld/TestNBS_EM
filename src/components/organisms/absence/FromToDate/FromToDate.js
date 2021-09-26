@@ -1,33 +1,34 @@
 import React, {useState} from 'react';
-import moment from 'moment';
 import {View} from 'react-native';
 import RowText from '../../../molecules/row/RowText';
 
 const FromToDate = () => {
-  console.log(moment().format('DD MMM YYYY'));
-  const [date_1, setDate_1] = useState(new Date());
-  const [date_2, setDate_2] = useState(new Date());
-  const [open_1, setOpen_1] = useState(false);
-  const [open_2, setOpen_2] = useState(false);
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+  const [date2, setDate2] = useState(date);
+  const [mode2, setMode2] = useState('date');
+  const [show2, setShow2] = useState(false);
 
   return (
     <View>
       <RowText
         text={'From'}
-        startOne={true}
-        start={date_1}
-        open={open_1}
-        setOpen={setOpen_1}
-        setDate={setDate_1}
-        date={date_1}
+        date={date}
+        setDate={setDate}
+        setShow={setShow}
+        show={show}
+        mode={mode}
+        setMode={setMode}
       />
       <RowText
         text={'To'}
-        open={open_2}
-        start={date_2}
-        setOpen={setOpen_2}
-        setDate={setDate_2}
-        date={date_2}
+        date={date2}
+        setDate={setDate2}
+        setShow={setShow2}
+        show={show2}
+        mode={mode2}
+        setMode={setMode2}
       />
     </View>
   );

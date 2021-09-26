@@ -13,7 +13,7 @@ class DashboardPage extends Component {
       <View style={styling.bodyFlex}>
         <View style={styles.background}>
           <View style={styles.row}>
-            <AvatarText color={colour.WHITE} />
+            <AvatarText color={colour.WHITE} bgColor={colour.GREEN[6]} />
             <Text style={styles.company}> Attendance App </Text>
             <AvatarText bgColor={'transparent'} color={'transparent'} />
           </View>

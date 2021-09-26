@@ -14,7 +14,11 @@ const TakePhoto = () => {
         padding: 20,
         borderRadius: 8,
         borderWidth: 0.5,
-        borderColor: colour.BLUE[1],
+        borderColor: colour.GREEN[6],
+        borderRightWidth: 1,
+        borderBottomWidth: 1,
+        borderRightColor: colour.GREEN[6],
+        borderBottomColor: colour.GREEN[6],
       }}>
       <View>
         <View style={styles.row}>

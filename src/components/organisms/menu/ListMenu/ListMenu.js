@@ -1,48 +1,58 @@
 import React from 'react';
 import {Text, View} from 'react-native';
+import {createRef} from 'react/cjs/react.development';
 import {fonts} from '../../../../assets/styles';
-import {_push} from '../../../../config/routes/NavigationServices';
+import {_push, _replace} from '../../../../config/routes/NavigationServices';
 import {screens} from '../../../../config/routes/screens';
 import ListNoScroll from '../../../molecules/list/ListNoScroll';
+import ModalConfirmation from '../../../molecules/modal/ModalConfirmation';
 import styles from './styles';
 
-const iconMenu = [
-  {
-    icon: 'sign-in',
-    label: 'Check-In',
-    screen: screens.check_in,
-  },
-  {
-    icon: 'sign-out',
-    label: 'Check-Out',
-    screen: screens.check_out,
-  },
-  {
-    icon: 'archive',
-    label: 'Permission',
-    screen: screens.permission,
-  },
-  {
-    icon: 'stethoscope',
-    label: 'Sick',
-    screen: screens.sick,
-  },
-  {
-    icon: 'list-alt',
-    label: 'History',
-    screen: screens.history,
-  },
-  {
-    icon: 'close',
-    label: 'Exit',
-    screen: screens.login,
-  },
-];
-
 const ListMenu = () => {
+  let modalOut = createRef();
+
   const _goTo = screen => {
-    _push(screen);
+    console.log(screen);
+    if (screen === '_modalOut') {
+      modalOut.current.open();
+    } else {
+      _push(screen);
+    }
   };
+
+  const iconMenu = [
+    {
+      icon: 'sign-in',
+      label: 'Check-In',
+      screen: screens.check_in,
+    },
+    {
+      icon: 'sign-out',
+      label: 'Check-Out',
+      screen: screens.check_out,
+    },
+    {
+      icon: 'archive',
+      label: 'Permission',
+      screen: screens.permission,
+    },
+    {
+      icon: 'stethoscope',
+      label: 'Sick',
+      screen: screens.sick,
+    },
+    {
+      icon: 'list-alt',
+      label: 'History',
+      screen: screens.history,
+    },
+    {
+      icon: 'close',
+      label: 'Exit',
+      screen: '_modalOut',
+    },
+  ];
+
   return (
     <View style={{marginTop: 20}}>
       <Text style={{...fonts.semiBold_14}}>Quick Access</Text>
@@ -57,6 +67,11 @@ const ListMenu = () => {
         itemProps={{
           onPress: _goTo,
         }}
+      />
+      <ModalConfirmation
+        ref={modalOut}
+        funcPositive={() => _replace(screens.login)}
+        txtPositive={'Yes'}
       />
     </View>
   );

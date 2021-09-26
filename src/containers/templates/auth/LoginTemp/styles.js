@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   error: {color: 'red', ...fonts.reg_12, marginTop: -15, marginBottom: 15},
-  textLink: {alignItems: 'center', marginTop: 40},
+  textLink: {alignItems: 'center', justifyContent: 'center', marginTop: 40},
   header: {alignItems: 'center', marginTop: 45},
   image: {
     width: widthScreen * 0.35,

@@ -4,18 +4,22 @@ export const valEmail = key => ({
   [key]: yup
     .string()
     .email('Format email yang benar: name@email.com')
-    .required('Email wajib diisi'),
+    .required('Email is required'),
+});
+
+export const valNoId = key => ({
+  [key]: yup.string().required('ID Number is required'),
 });
 export const valPassword = key => ({
-  [key]: yup.string().required('Password wajib diisi'),
+  [key]: yup.string().required('Password is required'),
 });
 
 export const valName = key => ({
-  [key]: yup.string().required('Nama wajib diisi'),
+  [key]: yup.string().required('Full Name is required'),
 });
 
 export const valGender = key => ({
-  [key]: yup.object().required('Jenis Kelamin wajib diisi').nullable(),
+  [key]: yup.object().required('Gender is required').nullable(),
 });
 
 export const valCurrentPass = key => ({
@@ -26,19 +30,19 @@ export const valNewPassword = key => ({
   [key]: yup
     .string()
     .required('Password baru wajib diisi')
-    .min(8, 'Minimal 8 karakter'),
+    .min(8, 'Minimal 8 character'),
 });
 
 export const valRegPassword = key => ({
   [key]: yup
     .string()
-    .required('Password wajib diisi')
+    .required('Password is required')
     .min(8, 'Minimal 8 karakter'),
 });
 
 export const valConfPassword = key => ({
   [key]: yup
     .string()
-    .oneOf([yup.ref('password'), null], 'Password tidak cocok')
-    .required('Konfirmasi Password baru wajib diisi'),
+    .oneOf([yup.ref('password'), null], 'Password not match')
+    .required('Password Confirmation is required'),
 });

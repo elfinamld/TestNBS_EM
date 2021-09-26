@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import {fonts, styling} from '../../../../assets/styles';
 import ButtonContained from '../../../../components/molecules/button/ButtonContained/ButtonContained';
 import HeaderBack from '../../../../components/molecules/headers/HeaderBack/HeaderBack';
@@ -13,7 +13,7 @@ const CheckInOutTemp = ({title, onPress}) => {
   return (
     <View style={styling.bodyFlex}>
       <HeaderBack handleBack={_goBack} />
-      <View style={{padding: 20}}>
+      <ScrollView style={{padding: 20, flex: 1}}>
         <Text style={{textAlign: 'center', ...fonts.bold_24, marginBottom: 20}}>
           {title}
         </Text>
@@ -21,10 +21,12 @@ const CheckInOutTemp = ({title, onPress}) => {
         <ToggleRow />
         <TakePhoto />
         <Remarks title={'Remarks'} placeholder={'Example: Fixing view'} />
-        <ButtonContained style={{marginTop: 50}} onPress={onPress}>
+        <ButtonContained
+          style={{marginTop: 50, marginBottom: 50}}
+          onPress={onPress}>
           SUBMIT
         </ButtonContained>
-      </View>
+      </ScrollView>
     </View>
   );
 };

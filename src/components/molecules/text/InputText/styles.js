@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     backgroundColor: colour.GREEN[2],
     ...styling.row,
     height: 50,
-    paddingLeft: 5,
+
     overflow: 'hidden',
     borderRadius: 8,
     borderWidth: 1,

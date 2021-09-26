@@ -1,8 +1,9 @@
 import {yupResolver} from '@hookform/resolvers/yup';
 import React, {useMemo} from 'react';
 import {useForm} from 'react-hook-form';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView, SafeAreaView} from 'react-native';
 import * as yup from 'yup';
+import {fonts} from '../../../../assets/styles';
 import ButtonContained from '../../../../components/molecules/button/ButtonContained/ButtonContained';
 import {
   valConfPassword,
@@ -26,32 +27,32 @@ const RegisterTemp = ({onSubmit, loading}) => {
   const formData = useMemo(
     () => ({
       fullName: {
-        label: 'nama lengkap',
-        placeholder: 'Masukkan Nama Anda',
+        label: 'Full Name',
+        placeholder: 'Fill your full name',
         name: 'nama depan',
-      },
-      gender: {
-        label: 'jenis kelamin',
-        placeholder: 'Pilih jenis kelamin',
-        name: 'jenis kelamin',
-        mode: 'modal',
       },
       email: {
         label: 'email',
-        placeholder: 'Masukkan Email Anda',
+        placeholder: 'Fill your email',
         name: 'Email',
+      },
+      gender: {
+        label: 'Gender',
+        placeholder: 'Choose your gender',
+        name: 'jenis kelamin',
+        mode: 'modal',
       },
       password: {
         label: 'password',
-        placeholder: 'Masukkan Password Anda',
+        placeholder: 'Fill your password',
         name: 'pass_reg',
         mode: 'secure',
         textRule: true,
         message: 'Minimal 8 karakter',
       },
       confPassword: {
-        label: 'konfirmasi password',
-        placeholder: 'Masukkan Konfirmasi Password Anda',
+        label: 'password confirmation',
+        placeholder: 'Fill your password confirmation',
         name: 'Password konfirmasi',
         mode: 'secure',
       },
@@ -68,25 +69,29 @@ const RegisterTemp = ({onSubmit, loading}) => {
     mode: 'onChange',
   });
   return (
-    <View style={styles.wrap}>
-      <Text>Register</Text>
-      <View style={styles.wrapInput}>
-        <GenerateForm
-          formData={formData}
-          errorAppear={true}
-          errors={errors}
-          handleSubmit={handleSubmit(onSubmit)}
-          {...propsForm}
-        />
-      </View>
-      <ButtonContained
-        onPress={handleSubmit(onSubmit)}
-        loading={loading}
-        disabled={loading}
-        style={{marginTop: 40}}>
-        Register
-      </ButtonContained>
-    </View>
+    <SafeAreaView>
+      <ScrollView>
+        <View style={styles.wrap}>
+          <Text style={{...fonts.bold_24}}>Register</Text>
+          <View style={styles.wrapInput}>
+            <GenerateForm
+              formData={formData}
+              errorAppear={true}
+              errors={errors}
+              handleSubmit={handleSubmit(onSubmit)}
+              {...propsForm}
+            />
+          </View>
+          <ButtonContained
+            onPress={handleSubmit(onSubmit)}
+            loading={loading}
+            disabled={loading}
+            style={{marginTop: 40}}>
+            Register
+          </ButtonContained>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

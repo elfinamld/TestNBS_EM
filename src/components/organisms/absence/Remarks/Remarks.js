@@ -28,11 +28,15 @@ const Remarks = ({title, placeholder}) => {
           return (
             <TextInput
               style={{
-                borderWidth: 0.5,
+                borderWidth: 0.6,
                 borderRadius: 8,
                 paddingHorizontal: 20,
                 minHeight: 150,
-                borderColor: colour.BLUE[1],
+                borderColor: colour.GREEN[6],
+                borderRightWidth: 1,
+                borderBottomWidth: 1,
+                borderRightColor: colour.GREEN[6],
+                borderBottomColor: colour.GREEN[6],
               }}
               handleChange={value => onChange(value)}
               handleBlur={onBlur}

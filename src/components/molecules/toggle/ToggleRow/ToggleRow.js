@@ -12,7 +12,11 @@ const ToggleRow = () => {
         borderRadius: 8,
         borderWidth: 0.5,
         marginTop: 20,
-        borderColor: colour.BLUE[1],
+        borderColor: colour.GREEN[6],
+        borderRightWidth: 1,
+        borderBottomWidth: 1,
+        borderRightColor: colour.GREEN[6],
+        borderBottomColor: colour.GREEN[6],
       }}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <TouchableOpacity
@@ -21,7 +25,7 @@ const ToggleRow = () => {
             padding: 10,
             borderRadius: 8,
             backgroundColor:
-              value === 'In the Office' ? colour.BLUE[2] : 'transparent',
+              value === 'In the Office' ? colour.GREEN[6] : 'transparent',
           }}
           activeOpacity={0.5}
           onPress={() => setValue('In the Office')}>
@@ -41,7 +45,7 @@ const ToggleRow = () => {
             padding: 10,
             borderRadius: 8,
             backgroundColor:
-              value === 'Outside the Office' ? colour.BLUE[2] : 'transparent',
+              value === 'Outside the Office' ? colour.GREEN[6] : 'transparent',
           }}
           onPress={() => setValue('Outside the Office')}>
           <Text

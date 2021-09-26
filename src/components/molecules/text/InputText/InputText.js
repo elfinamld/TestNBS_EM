@@ -11,7 +11,7 @@ import {TextInput, TouchableRipple} from 'react-native-paper';
 import {FontFamily} from '../../../../assets/styles/fonts';
 import colour from '../../../../assets/styles/colour';
 import styles from './styles';
-
+import Icon from 'react-native-vector-icons/Entypo';
 const themeInput = {
   colors: {
     primary: colour.GREEN[6],
@@ -122,7 +122,7 @@ const InputText = forwardRef(
               console.log('event1', event.nativeEvent);
               setFocused(true);
             }}
-            editable={!editable || isModal ? false : true}
+            editable={editable || isModal ? false : true}
             numberOfLines={1}
             value={value}
             theme={theme ? theme : themeDefault}
@@ -131,6 +131,11 @@ const InputText = forwardRef(
           />
           {isSecure && (
             <View style={styles.adorEnd}>
+              <Icon
+                name={hide ? 'eye' : 'eye-with-line'}
+                size={15}
+                onPress={() => setHide(!hide)}
+              />
               {/* <IcPassword see={hide} onPress={() => setHide(!hide)} /> */}
             </View>
           )}

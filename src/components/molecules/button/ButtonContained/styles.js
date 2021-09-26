@@ -1,12 +1,12 @@
 import {StyleSheet} from 'react-native';
-import {styling} from '../../../../assets/styles';
+import {fonts, styling} from '../../../../assets/styles';
 
 const styles = StyleSheet.create({
   label: {
     textTransform: 'none',
     letterSpacing: 0,
     marginVertical: 13,
-    fontSize: 14,
+    ...fonts.semiBold_14,
   },
   outlined: {borderWidth: 1},
   noMargin: {

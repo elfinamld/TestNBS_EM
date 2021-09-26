@@ -1,6 +1,8 @@
 import React, {createRef} from 'react';
 import {Controller} from 'react-hook-form';
 import {View} from 'react-native';
+import {useState} from 'react/cjs/react.development';
+import ModalOption from '../../../../components/molecules/modal/ModalOption';
 import InputText from '../../../../components/molecules/text/InputText';
 // import InputText from '../../../../components/molecules/input/InputText';
 const GenerateForm = ({
@@ -19,6 +21,8 @@ const GenerateForm = ({
   ...propsForm
 }) => {
   let arrFormData = Object.keys(formData);
+  const [key, setKey] = useState(null);
+  let modalRef = createRef();
   // console.log(`arrFormData`, setValue);
   let inputRef = {};
 
@@ -33,15 +37,9 @@ const GenerateForm = ({
     }
   };
 
-  const _openModalGender = key => {
-    modal({
-      modalMode: 'ModalOption',
-      data: {
-        field: key,
-        title: key,
-        onSelected: _handleOptionPicked,
-      },
-    });
+  const _openModalGender = keys => {
+    setKey(keys);
+    modalRef.current.open();
   };
 
   const _handleOptionPicked = (field, data) => {
@@ -98,6 +96,14 @@ const GenerateForm = ({
           />
         );
       })}
+      <ModalOption
+        ref={modalRef}
+        data={{
+          field: key,
+          title: key,
+          onSelected: _handleOptionPicked,
+        }}
+      />
     </View>
   );
 };

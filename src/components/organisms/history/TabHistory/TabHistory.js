@@ -1,6 +1,12 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {SceneMap, TabView} from 'react-native-tab-view';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+} from 'react-native';
+import {SceneMap, TabBar, TabView} from 'react-native-tab-view';
 import {colour, fonts, styling} from '../../../../assets/styles';
 import {widthScreen} from '../../../../assets/styles/styling';
 import Remarks from '../../absence/Remarks';
@@ -16,10 +22,15 @@ import {
 const _TabBar = ({jumpTo, navigationState}) => {
   const {routes} = navigationState;
   return (
-    <View
+    <ScrollView
+      scrollEnabled
+      contentContainerStyle={{backgroundColor: 'pink'}}
+      horizontal={true}
       style={{
+        height: 0,
+        // backgroundColor: 'blue',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        // justifyContent: 'space-between',
         paddingHorizontal: 20,
       }}>
       {routes.map((route, index) => {
@@ -62,7 +73,39 @@ const _TabBar = ({jumpTo, navigationState}) => {
           </TouchableOpacity>
         );
       })}
-    </View>
+    </ScrollView>
+  );
+};
+
+const _TabBar2 = props => {
+  console.log(props);
+  const {navigationState} = props;
+  const {routes} = navigationState;
+  return (
+    <TabBar
+      {...props}
+      scrollEnabled
+      tabStyle={{width: 'auto'}}
+      getLabelText={({route}) => route.title}
+      indicatorStyle={{
+        backgroundColor: colour.GREEN[3],
+        height: 3,
+        borderRadius: 8,
+      }}
+      indicatorContainerStyle={{borderRadius: 8}}
+      style={{backgroundColor: 'transparent', elevation: 0}}
+      renderLabel={({route, focused, color}) => (
+        <Text
+          style={{
+            color: colour.BLUE[1],
+            ...fonts.semiBold_14,
+            fontSize: 16,
+            margin: 5,
+          }}>
+          {route.title}
+        </Text>
+      )}
+    />
   );
 };
 
@@ -86,11 +129,12 @@ const TabHistory = ({...other}) => {
   return (
     <TabView
       style={{flex: 1, marginTop: 25}}
+      sceneContainerStyle={{backgroundColor: ' pink'}}
       navigationState={{index, routes}}
       renderScene={renderScene}
       onIndexChange={setIndex}
-      initialLayout={{width: widthScreen}}
-      renderTabBar={_TabBar}
+      initialLayout={{width: widthScreen, height: 0}}
+      renderTabBar={_TabBar2}
       swipeEnabled
     />
   );
@@ -101,7 +145,6 @@ const S = StyleSheet.create({
     paddingHorizontal: 13,
     flex: 1,
     overflow: 'visible',
-    // backgroundColor: 'yellow',
     backgroundColor: colour.BLUE[2],
   },
   tabBar: {
@@ -111,9 +154,9 @@ const S = StyleSheet.create({
   },
   tab: {
     borderRadius: 0,
-    backgroundColor: 'transparent',
-    flex: 1,
-    height: '100%',
+    backgroundColor: 'pink',
+    // flex: 1,
+    // height: '100%',
   },
   label: {
     ...fonts.semiBold_14,

@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   background: {
-    backgroundColor: colour.SOFT[5],
+    backgroundColor: colour.SOFT[6],
     width: widthScreen,
     height: heightScreen * 0.3,
     borderBottomLeftRadius: 80,
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   greet: {
-    marginTop: 20,
+    marginTop: 50,
     paddingHorizontal: 20,
     justifyContent: 'center',
   },
